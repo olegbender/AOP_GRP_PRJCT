@@ -70,6 +70,17 @@ public class ConnectDB {
 
     }
 
+    public void Transfer(int senderId, int receiverId, int value) {
+        String sql = "BEGIN TRANSACTION; UPDATE User SET balance = balance - " + value + " WHERE id = " + senderId + "; UPDATE User SET balance = balance + " + value + " WHERE id = " + receiverId + "; COMMIT";
+        try (Connection conn = connect(); Statement stmt = conn.createStatement();) {
+            stmt.executeUpdate(sql);
+            System.out.println("=== TRANSFER SUCCES ===!");
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("TRANSFER FAILED: " + e.getMessage());
+        }
+    }
+
     public Connection connect() {
         String url = "jdbc:sqlite:bankDB.db";
         Connection conn = null;
