@@ -162,6 +162,11 @@ public class GUI_terminal extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconCreate.png"))); // NOI18N
         jLabel11.setText("Create an account");
         jLabel11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 3, true));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         jButton15.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.borderColor"));
         jButton15.setFont(new java.awt.Font("Marcellus SC", 1, 24)); // NOI18N
@@ -730,6 +735,12 @@ TB.AddDigitToFormattedTextField(jFormattedTextField2, 1);
             System.out.println("ERROR: no such number!");
         }
     }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+        ConsoleApp CA = new ConsoleApp();
+        CA.initialization();
+    }//GEN-LAST:event_jLabel11MouseClicked
 
     /**
      * @param args the command line arguments
